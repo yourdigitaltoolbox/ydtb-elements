@@ -1,10 +1,10 @@
 <?php
 
-namespace PluginRoot;
+namespace YDTBWidgetRoot;
 
-use \PluginServer\Providers\ApiServiceProvider;
-use \PluginServer\Providers\CommandServiceProvider;
-use \PluginServer\Providers\ViewProvider;
+use \YDTBWidgets\Providers\ApiServiceProvider;
+use \YDTBWidgets\Providers\CommandServiceProvider;
+use YDTBWidgets\Providers\WidgetProvider;
 
 class Plugin
 {
@@ -27,6 +27,7 @@ class Plugin
         return [
             CommandServiceProvider::class,
             ApiServiceProvider::class,
+            WidgetProvider::class,
         ];
     }
 

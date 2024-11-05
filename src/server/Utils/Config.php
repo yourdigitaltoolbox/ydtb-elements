@@ -1,6 +1,6 @@
 <?php
 
-namespace PluginServer\Utils;
+namespace YDTBWidgets\Utils;
 class config
 {
     public static function get($key = ''): object|string

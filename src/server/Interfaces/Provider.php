@@ -1,6 +1,6 @@
 <?php
 
-namespace PluginServer\Interfaces;
+namespace YDTBWidgets\Interfaces;
 
 interface Provider
 {

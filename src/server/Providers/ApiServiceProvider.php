@@ -1,8 +1,8 @@
 <?php
 
-namespace PluginServer\Providers;
+namespace YDTBWidgets\Providers;
 
-use PluginServer\Interfaces\Provider;
+use YDTBWidgets\Interfaces\Provider;
 
 class ApiServiceProvider implements Provider
 {

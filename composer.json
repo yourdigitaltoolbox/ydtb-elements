@@ -21,13 +21,13 @@
     },
     "autoload": {
         "psr-4": {
-            "PluginServer\\": "src/server/",
-            "PluginRoot\\": "src/"
+            "YDTBWidgets\\": "src/server/",
+            "YDTBWidgetRoot\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PluginServer\\Tests\\": "tests/"
+            "YDTBWidgets\\Tests\\": "tests/"
         }
     },
     "require": {

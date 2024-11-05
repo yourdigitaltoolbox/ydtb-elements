@@ -28,4 +28,4 @@ if (!file_exists(filename: $autoload)) {
 }
 require_once $autoload;
 
-new PluginRoot\Plugin();
+new YDTBWidgetRoot\Plugin();
