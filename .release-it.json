@@ -22,11 +22,10 @@
         "after:bump": "npx auto-changelog -p",
         "before:release": [
             "composer install",
-            "bun run build",
             "git add . --update",
             "git commit -m 'chore: release v${version}'",
             "git checkout --detach",
-            "git add dist/* vendor/* -f",
+            "git add vendor/* -f",
             "git commit -m 'chore: release v${version}'",
             "git tag ${version}",
             "git push origin ${version} "
@@ -42,10 +41,6 @@
                 {
                     "file": "ydtb-elements.php",
                     "type": "text/php"
-                },
-                {
-                    "file": "package.json",
-                    "type": "json"
                 }
             ]
         }
