@@ -1,0 +1,33 @@
+{
+  "name": "ydtb-elementor-widgets",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "description": "YDTB Elementor Widgets",
+  "homepage": "https://yourdigitaltoolbox.com",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "authors": [
+    {
+      "name": "John Kraczek",
+      "email": "john@yourdigitaltoolbox.com"
+    }
+  ],
+  "scripts": {
+    "release": "dotenv release-it --only-version"
+  },
+  "devDependencies": {
+    "@release-it/bumper": "^6.0.1",
+    "dotenv-cli": "^7.4.2",
+    "release-it": "^17.10.0",
+    "mini-css-extract-plugin": "^2.9.2"
+  },
+  "dependencies": {},
+  "browserslist": [
+    "extends @roots/browserslist-config"
+  ]
+}

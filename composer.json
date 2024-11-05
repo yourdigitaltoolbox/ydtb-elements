@@ -1,0 +1,36 @@
+{
+    "name": "ydtbwp/elementor-widgets",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "description": "Boilerplate for WordPress plugins.",
+    "homepage": "https://yourdigitaltoolbox.com",
+    "authors": [
+        {
+            "name": "John Kraczek",
+            "email": "john@yourdigitaltoolbox.com",
+            "homepage": "https://yourdigitaltoolbox.com"
+        }
+    ],
+    "keywords": [
+        "wordpress",
+        "plugin"
+    ],
+    "support": {
+        "issues": "https://github.com/your-org/your-repo/issues",
+        "forum": "https://example.com/forum"
+    },
+    "autoload": {
+        "psr-4": {
+            "PluginServer\\": "src/server/",
+            "PluginRoot\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PluginServer\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.0"
+    }
+}
