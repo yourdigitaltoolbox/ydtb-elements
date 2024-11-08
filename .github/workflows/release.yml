@@ -79,10 +79,6 @@ jobs:
           cd release
           echo "RELEASE_VERSION=$(bun release-it ${{env.BUMP_LEVEL}} ${{env.PRE_RELEASE}} ${{env.PRE_RELEASE_ID}} --release-version)" >> $GITHUB_ENV
 
-      - name: Add .env file
-        run: |
-          echo "" > release/.env
-
       - name: Bump The Version
         id: bump_version
         continue-on-error: true
