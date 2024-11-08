@@ -2,9 +2,10 @@
 
 namespace YDTBWidgetRoot;
 
-use \YDTBWidgets\Providers\ApiServiceProvider;
-use \YDTBWidgets\Providers\CommandServiceProvider;
+use YDTBWidgets\Providers\ApiServiceProvider;
+use YDTBWidgets\Providers\CommandServiceProvider;
 use YDTBWidgets\Providers\WidgetProvider;
+use YDTBWidgets\Utils\Updater;
 
 class Plugin
 {
@@ -28,6 +29,7 @@ class Plugin
             CommandServiceProvider::class,
             ApiServiceProvider::class,
             WidgetProvider::class,
+            Updater::class
         ];
     }
 

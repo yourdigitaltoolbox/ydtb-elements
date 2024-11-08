@@ -1,8 +1,11 @@
 <?php
 
-namespace WPFreighter;
+namespace YDTBWidgets\Utils;
 
-class Updater
+use YDTBWidgets\Interfaces\Provider;
+use YDTBWidgets\Utils\Config;
+
+class Updater implements Provider
 {
 
     public $plugin_slug;
@@ -10,11 +13,11 @@ class Updater
     public $cache_key;
     public $cache_allowed;
 
-    public function __construct()
+    public function register()
     {
-        $this->plugin_slug = dirname(plugin_basename(__DIR__));
-        $this->version = '1.1';
-        $this->cache_key = 'wpfreighter_updater';
+        $this->plugin_slug = Config::get(key: 'plugin_slug');
+        $this->version = Config::get(key: 'version');
+        $this->cache_key = $this->plugin_slug . '_update';
         $this->cache_allowed = false;
 
         add_filter(hook_name: 'plugins_api', callback: [$this, 'info'], priority: 20, accepted_args: 3);
@@ -28,8 +31,8 @@ class Updater
         if (false === $remote || !$this->cache_allowed) {
 
             $remote = wp_remote_get(
-                'https://',
-                [
+                url: Config::get(key: 'update_url'),
+                args: [
                     'timeout' => 10,
                     'headers' => [
                         'Accept' => 'application/json'
@@ -41,8 +44,7 @@ class Updater
                 return false;
             }
 
-            set_transient($this->cache_key, $remote, DAY_IN_SECONDS);
-
+            set_transient(transient: $this->cache_key, value: $remote, expiration: 60);
         }
 
         $remote = json_decode(wp_remote_retrieve_body($remote));
