@@ -31,8 +31,10 @@
         }
     },
     "require": {
-        "php": "^8.0",
-        "wordpress": "^5.8",
-        "tested": "^5.8"
+        "php": "^8.0"
+    },
+    "data": {
+        "wordpress": "0",
+        "tested": "0"
     }
 }

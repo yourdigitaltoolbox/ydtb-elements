@@ -12,29 +12,19 @@ class Updater
 
     public function __construct()
     {
-
-        if (defined('WP_FREIGHTER_DEV_MODE')) {
-            add_filter('https_ssl_verify', '__return_false');
-            add_filter('https_local_ssl_verify', '__return_false');
-            add_filter('http_request_host_is_external', '__return_true');
-        }
-
         $this->plugin_slug = dirname(plugin_basename(__DIR__));
         $this->version = '1.1';
         $this->cache_key = 'wpfreighter_updater';
         $this->cache_allowed = false;
 
-        add_filter('plugins_api', [$this, 'info'], 20, 3);
-        add_filter('site_transient_update_plugins', [$this, 'update']);
-        add_action('upgrader_process_complete', [$this, 'purge'], 10, 2);
-
+        add_filter(hook_name: 'plugins_api', callback: [$this, 'info'], priority: 20, accepted_args: 3);
+        add_filter(hook_name: 'site_transient_update_plugins', callback: [$this, 'update']);
+        add_action(hook_name: 'upgrader_process_complete', callback: [$this, 'purge'], priority: 10, accepted_args: 2);
     }
 
     public function request()
     {
-
         $remote = get_transient($this->cache_key);
-
         if (false === $remote || !$this->cache_allowed) {
 
             $remote = wp_remote_get(

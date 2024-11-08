@@ -53,8 +53,8 @@ jobs:
           template=$(cat source/.github/template/manifest.json)
           version=$(jq -r '.version' source/package.json)
           download_url="${{ env.DOWNLOAD_URL }}"
-          requires=$(jq -r '.require.wordpress' source/composer.json)
-          tested=$(jq -r '.require.tested' source/composer.json)
+          requires=$(jq -r '.data.wordpress' source/composer.json)
+          tested=$(jq -r '.data.tested' source/composer.json)
           requires_php=$(jq -r '.require.php' source/composer.json)
           updated_date=$(date +"%Y-%m-%d %H:%M:%S")
           changelog=$(cat source/CHANGELOG.md)
