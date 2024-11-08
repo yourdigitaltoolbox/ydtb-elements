@@ -17,12 +17,9 @@
       "email": "john@yourdigitaltoolbox.com"
     }
   ],
-  "scripts": {
-    "release": "dotenv release-it --only-version"
-  },
+  "scripts": {},
   "devDependencies": {
     "@release-it/bumper": "^6.0.1",
-    "dotenv-cli": "^7.4.2",
     "release-it": "^17.10.0",
     "mini-css-extract-plugin": "^2.9.2"
   },
