@@ -5,7 +5,8 @@ namespace YDTBWidgets\Providers;
 use YDTBWidgets\Interfaces\Provider;
 use YDTBWidgets\Modules\CodeHighlight;
 use YDTBWidgets\Modules\KeyboardWidget;
-use \Elementor\Plugin;
+use YDTBWidgets\Modules\CodeGateway;
+use Elementor\Plugin;
 
 class WidgetProvider implements Provider
 {
@@ -17,5 +18,6 @@ class WidgetProvider implements Provider
     {
         new CodeHighlight();
         Plugin::instance()->widgets_manager->register(new KeyboardWidget());
+        Plugin::instance()->widgets_manager->register(new CodeGateway());
     }
 }

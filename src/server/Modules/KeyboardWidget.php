@@ -16,7 +16,7 @@ class KeyboardWidget extends \Elementor\Widget_Base
 
     public function get_icon()
     {
-        return 'eicon-carousel';
+        return 'eicon-custom';
     }
 
     public function get_categories()
