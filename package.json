@@ -17,14 +17,20 @@
       "email": "john@yourdigitaltoolbox.com"
     }
   ],
-  "scripts": {},
+  "scripts": {
+    "build": "bun @tailwindcss/cli -i ./src/client/styles/tailwind.css -o ./dist/css/style.css",
+    "watch": "bun @tailwindcss/cli -i ./src/client/styles/tailwind.css -o ./dist/css/style.css --watch"
+  },
   "devDependencies": {
     "@release-it/bumper": "^6.0.1",
+    "mini-css-extract-plugin": "^2.9.2",
     "release-it": "^17.10.0",
-    "mini-css-extract-plugin": "^2.9.2"
+    "tailwindcss": "^4.0.4"
   },
-  "dependencies": {},
   "browserslist": [
     "extends @roots/browserslist-config"
-  ]
+  ],
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.4"
+  }
 }
