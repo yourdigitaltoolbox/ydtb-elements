@@ -14,6 +14,10 @@ class Plugin
     public function __construct()
     {
         if (!$this->plugin_checks()) {
+            // still run the safe providers like the updater if the plugin checks fail
+            foreach ($this->safeProviders() as $service) {
+                (new $service)->register();
+            }
             return;
         }
         $this->register();
@@ -29,6 +33,13 @@ class Plugin
             CommandServiceProvider::class,
             ApiServiceProvider::class,
             WidgetProvider::class,
+            Updater::class
+        ];
+    }
+
+    protected function safeProviders()
+    {
+        return [
             Updater::class
         ];
     }
