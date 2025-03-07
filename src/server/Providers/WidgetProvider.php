@@ -19,7 +19,7 @@ class WidgetProvider implements Provider
     {
         new CodeHighlight();
         Plugin::instance()->widgets_manager->register(new KeyboardWidget());
-        Plugin::instance()->widgets_manager->register(new CodeGateway());
+        // Plugin::instance()->widgets_manager->register(new CodeGateway());
         Plugin::instance()->widgets_manager->register(new PeerTubeVideo());
     }
 }
