@@ -320,6 +320,11 @@ class PeerTubeVideo extends \Elementor\Widget_Base
         // $alignment = isset($settings['alignment']) ? $settings['alignment'] : 'center';
 
         ?>
+        <style>
+            .e-con-inner:has(.elementor-widget-ydtb_peertube_video) {
+                --flex-wrap: nowrap;
+            }
+        </style>
         <div class="peertube-container" style="display: flex;">
             <div class=" peertube-video-wrapper">
                 <div style="position: relative; width: 100%; padding-top: 56.25%;">
