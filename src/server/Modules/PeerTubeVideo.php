@@ -16,7 +16,7 @@ class PeerTubeVideo extends \Elementor\Widget_Base
 
     public function get_icon()
     {
-        return 'eicon-custom';
+        return 'eicon-video-playlist';
     }
 
     public function get_categories()
