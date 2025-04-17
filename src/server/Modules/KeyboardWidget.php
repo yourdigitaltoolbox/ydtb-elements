@@ -339,17 +339,18 @@ class KeyboardWidget extends \Elementor\Widget_Base
             $this->add_inline_editing_attributes('text_after', 'basic');
             echo '<span ' . $this->get_render_attribute_string('text_after') . ' class="text-after" >' . $this->get_settings('text_after') . '</span>';
             ?>
-            <?php
+        </div>
+        <?php
     }
 
     protected function content_template()
     {
         ?>
-            <# if ( ! settings.list.length ) { return; } #>
-                <# print( settings.text_before + " " ); #>
-                    <span class="space-before"></span>
-                    <# _.each( settings.list, function( item, index ) { #>
-                        <span class="keyboard-key" style="
+        <# if ( ! settings.list.length ) { return; } #>
+            <# print( settings.text_before + " " ); #>
+                <span class="space-before"></span>
+                <# _.each( settings.list, function( item, index ) { #>
+                    <span class="keyboard-key" style="
                             display:inline-block;
                             margin: 0px 4px;
                             box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5);
@@ -357,13 +358,13 @@ class KeyboardWidget extends \Elementor\Widget_Base
                             text-transform: uppercase;
                             text-align: center;
                         ">{{{ item.text }}}</span>
-                        <# if ( index < settings.list.length - 1 ) { #>
-                            <span class="space-between">{{{ settings.separator }}}</span>
-                            <# } #>
-                                <# } ); #>
-                                    <span class="space-after"></span>
-                                    <# print( " " + settings.text_after ); #>
+                    <# if ( index < settings.list.length - 1 ) { #>
+                        <span class="space-between">{{{ settings.separator }}}</span>
+                        <# } #>
+                            <# } ); #>
+                                <span class="space-after"></span>
+                                <# print( " " + settings.text_after ); #>
 
-                                        <?php
+                                    <?php
     }
 }
