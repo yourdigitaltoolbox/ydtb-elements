@@ -6,7 +6,7 @@
  * Description: A set of Elementor Widgets by Your Digital Toolbox
  * Author:      John Kraczek
  * Author URI:  https://yourdigitaltoolbox.com/
- * Version:     0.2.4
+ * Version:     0.2.5
  * Text Domain: ydtb-elementor-widgets
  * Domain Path: /languages/
  * License:     GPLv3 or later (license.txt)
