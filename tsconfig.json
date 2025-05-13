@@ -1,0 +1,18 @@
+{
+  "extends": ["@roots/bud/config/tsconfig.json"],
+  "compilerOptions": {
+    "allowJs": true,
+    "paths": {
+      "@src/*": ["./src/*"]
+    },
+    "types": [
+      "@roots/bud",
+      "@roots/bud-eslint",
+      "@types/node",
+      "webpack/module"
+    ]
+  },
+  "files": ["./bud.config.ts", "./types.d.ts"],
+  "include": ["./src"],
+  "exclude": ["./node_modules", "./dist"]
+}
