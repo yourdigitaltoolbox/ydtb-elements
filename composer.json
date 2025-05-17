@@ -23,7 +23,7 @@
         "psr-4": {
             "YDTBWidgets\\": "src/server/",
             "YDTBWidgetRoot\\": "src/",
-            "YDTBModule\\": "src/Modules/"
+            "YDTBWidget\\": "src/Widgets/"
         }
     },
     "autoload-dev": {

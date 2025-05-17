@@ -1,9 +1,9 @@
 <?php
-namespace YDTBModule\AiChat;
+namespace YDTBWidget\AiChat;
 
 use YDTBWidgets\Utils\YDTBWidget;
 
-class Widget extends YDTBWidget
+class AiChat extends YDTBWidget
 {
     protected string $name = 'ai_chat';
     protected string $title = 'AI Chat';
