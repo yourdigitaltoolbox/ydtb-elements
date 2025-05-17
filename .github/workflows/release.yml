@@ -92,6 +92,11 @@ jobs:
         env:
           REPO_NAME: ${{ env.REPO_NAME }}
 
+      - name: Build Assets
+        run: |
+          cd release
+          bun run build
+
       - name: Prepare Release
         run: |
           rm -rf release/.git
