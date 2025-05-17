@@ -28,6 +28,7 @@
     "@roots/bud-typescript": "^6.24.0",
     "@roots/eslint-config": "^6.24.0",
     "@roots/bud-eslint": "^6.24.0",
-    "release-it": "^17.10.0"
+    "release-it": "^19.0.2",
+    "@release-it/bumper": "^7.0.5"
   }
 }
