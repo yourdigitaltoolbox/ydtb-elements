@@ -1,7 +1,8 @@
 {
-  "name": "Bud Test App",
-  "$schema": "https://bud.js.org/bud.package.json",
-  "description": "Description",
+  "name": "ydtb-elementor-widgets",
+  "version": "0.2.5",
+  "description": "A set of Elementor Widgets by Your Digital Toolbox",
+  "homepage": "https://yourdigitaltoolbox.com",
   "engines": {
     "node": ">=16"
   },
@@ -25,9 +26,8 @@
     "@roots/bud-react": "^6.24.0",
     "@roots/bud-swc": "^6.24.0",
     "@roots/bud-typescript": "^6.24.0",
-    "@roots/eslint-config": "^6.24.0"
-  },
-  "dependencies": {
-    "@roots/bud-eslint": "^6.24.0"
+    "@roots/eslint-config": "^6.24.0",
+    "@roots/bud-eslint": "^6.24.0",
+    "release-it": "^17.10.0"
   }
 }

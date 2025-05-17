@@ -15,8 +15,10 @@ class WidgetProvider implements Provider
 
     public function loadWidgets(): void
     {
-        // update the CodeHighlight widget to use new features
-        new \YDTBWidget\CodeHighlight\CodeHighlight();
+        // Conditionally load the CodeHighlight widget if Elementor Pro is active
+        if (defined('ELEMENTOR_PRO_VERSION')) {
+            new \YDTBWidget\CodeHighlight\CodeHighlight();
+        }
 
         // Register All New Widgets
         $widgets = [
