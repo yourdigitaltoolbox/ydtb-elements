@@ -20,8 +20,14 @@
   },
   "devDependencies": {
     "@roots/bud": "^6.24.0",
-    "@roots/bud-eslint": "^6.24.0",
+    "@roots/bud-esbuild": "^6.24.0",
     "@roots/bud-prettier": "^6.24.0",
+    "@roots/bud-react": "^6.24.0",
+    "@roots/bud-swc": "^6.24.0",
+    "@roots/bud-typescript": "^6.24.0",
     "@roots/eslint-config": "^6.24.0"
+  },
+  "dependencies": {
+    "@roots/bud-eslint": "^6.24.0"
   }
 }

@@ -7,7 +7,7 @@ import path from 'path';
  */
 export default async (bud: Bud) => {
   const modulesDir = path.resolve(__dirname, 'src/Modules');
-  const possibleEntryPoints = ['main.ts', 'index.ts']; // Define possible entry point file names
+  const possibleEntryPoints = ['main.ts', 'index.ts', 'index.tsx']; // Define possible entry point file names
   const entries: Record<string, string[]> = {};
 
   try {

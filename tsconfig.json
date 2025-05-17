@@ -1,9 +1,14 @@
 {
-  "extends": ["@roots/bud/config/tsconfig.json"],
+  "extends": [
+    "@roots/bud/config/tsconfig.json"
+  ],
   "compilerOptions": {
     "allowJs": true,
+    "jsx": "react-jsx",
     "paths": {
-      "@src/*": ["./src/*"]
+      "@src/*": [
+        "./src/*"
+      ]
     },
     "types": [
       "@roots/bud",
@@ -12,7 +17,15 @@
       "webpack/module"
     ]
   },
-  "files": ["./bud.config.ts", "./types.d.ts"],
-  "include": ["./src"],
-  "exclude": ["./node_modules", "./dist"]
+  "files": [
+    "./bud.config.ts",
+    "./types.d.ts"
+  ],
+  "include": [
+    "./src"
+  ],
+  "exclude": [
+    "./node_modules",
+    "./dist"
+  ]
 }
