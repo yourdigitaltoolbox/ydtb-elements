@@ -63,12 +63,19 @@ class Plugin
 
     public function plugin_checks()
     {
-        if (!is_plugin_active('elementor/elementor.php') || !is_plugin_active('elementor-pro/elementor-pro.php')) {
+        if (!is_plugin_active('elementor/elementor.php')) {
             add_action('admin_notices', function () {
-                echo '<div class="notice notice-error"><p>Elementor and Elementor Pro must be installed and activated for YDTB Elements plugin to work.</p></div>';
+                echo '<div class="notice notice-error"><p>Elementor must be installed and activated for YDTB Elements plugin to work.</p></div>';
             });
             return false;
         }
+
+        // if (!is_plugin_active('elementor-pro/elementor-pro.php')) {
+        //     add_action('admin_notices', function () {
+        //         echo '<div class="notice notice-warning is-dismissible"><p>Elementor Pro is not installed or activated. The CodeHighlight widget will not be available.</p></div>';
+        //     });
+        // }
+
         return true;
     }
 }
