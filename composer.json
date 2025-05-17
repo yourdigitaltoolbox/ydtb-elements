@@ -22,7 +22,8 @@
     "autoload": {
         "psr-4": {
             "YDTBWidgets\\": "src/server/",
-            "YDTBWidgetRoot\\": "src/"
+            "YDTBWidgetRoot\\": "src/",
+            "YDTBWidget\\": "src/Widgets/"
         }
     },
     "autoload-dev": {

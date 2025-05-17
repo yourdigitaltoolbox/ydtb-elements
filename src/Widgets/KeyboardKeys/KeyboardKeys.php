@@ -1,7 +1,7 @@
 <?php
-namespace YDTBWidgets\Modules;
+namespace YDTBWidget\KeyboardKeys;
 
-class KeyboardWidget extends \Elementor\Widget_Base
+class KeyboardKeys extends \Elementor\Widget_Base
 {
 
     public function get_name()

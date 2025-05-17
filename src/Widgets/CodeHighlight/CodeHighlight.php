@@ -1,5 +1,5 @@
 <?php
-namespace YDTBWidgets\Modules;
+namespace YDTBWidget\CodeHighlight;
 
 class CodeHighlight
 {
@@ -8,7 +8,6 @@ class CodeHighlight
     {
         add_action('elementor/element/code-highlight/section_content/after_section_end', [$this, 'inject_custom_control'], 10, 2);
         add_filter('elementor/widget/render_content', [$this, 'change_heading_widget_content'], 10, 2);
-
     }
 
     function inject_custom_control($element, $section_id)
@@ -295,5 +294,4 @@ class CodeHighlight
         return $widget_content;
 
     }
-
 }

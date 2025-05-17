@@ -1,5 +1,5 @@
 <?php
-namespace YDTBWidgets\Modules;
+namespace YDTBWidget\PeerTubeVideo;
 
 class PeerTubeVideo extends \Elementor\Widget_Base
 {
