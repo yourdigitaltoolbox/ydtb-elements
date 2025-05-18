@@ -159,5 +159,106 @@ class AiChat extends YDTBWidget
 
         $this->end_controls_section();
 
+        $this->start_controls_section(
+            'section_style',
+            [
+                'label' => esc_html__('Chat Widget Styles', 'ydtb-elementor-widgets'),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'color_primary',
+            [
+                'label' => esc_html__('Primary Color', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#e74266',
+                'selectors' => [
+                    '{{WRAPPER}}' => '--chat--color-primary: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'color_secondary',
+            [
+                'label' => esc_html__('Secondary Color', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#20b69e',
+                'selectors' => [
+                    '{{WRAPPER}}' => '--chat--color-secondary: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'color_light',
+            [
+                'label' => esc_html__('Light Color', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#f2f4f8',
+                'selectors' => [
+                    '{{WRAPPER}}' => '--chat--color-light: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'color_dark',
+            [
+                'label' => esc_html__('Dark Color', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#101330',
+                'selectors' => [
+                    '{{WRAPPER}}' => '--chat--color-dark: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'spacing',
+            [
+                'label' => esc_html__('Spacing', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 50,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'rem',
+                    'size' => 1,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--chat--spacing: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'border_radius',
+            [
+                'label' => esc_html__('Border Radius', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', 'rem'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 50,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'rem',
+                    'size' => 0.25,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}}' => '--chat--border-radius: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
     }
 }
