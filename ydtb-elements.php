@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: YDTB Elementor Widgets
+ * Plugin Name: YDTB Elementor Widgets v2
  * Plugin URI:  https://yourdigitaltoolbox.com/
  * Description: A set of Elementor Widgets by Your Digital Toolbox
  * Author:      John Kraczek
