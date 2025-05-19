@@ -2,8 +2,17 @@ import '@n8n/chat/style.css';
 import {createChat} from '@n8n/chat';
 
 document.addEventListener('initChat', (event) => {
-  const chatConfig = (event as CustomEvent).detail;
-  createChat(chatConfig);
+  const {config, style} = (event as CustomEvent).detail;
+
+  // Generate a <style> tag with the CSS variables
+  const styleTag = document.createElement('style');
+  const cssVariables = Object.entries(style)
+    .map(([key, value]) => `${key}: ${value};`) // Use the key directly as it already includes the correct variable name
+    .join('\n');
+  styleTag.innerHTML = `:root { ${cssVariables} }`;
+  document.head.appendChild(styleTag);
+
+  createChat(config);
 
   const observer = new MutationObserver((mutationsList) => {
     for (const mutation of mutationsList) {
