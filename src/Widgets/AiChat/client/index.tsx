@@ -1,35 +1,24 @@
-/*eslint no-unused-vars: 0*/
-
-// import ReactDOM from 'react-dom/client';
-
-// import Greeting from './components/helloworld.jsx';
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const elements = document.getElementsByClassName('ai-chat');
-//   Array.from(elements).forEach((element) => {
-//     const root = ReactDOM.createRoot(element);
-//     root.render(<Greeting name="World" />);
-//   });
-// });
-
 import '@n8n/chat/style.css';
 import {createChat} from '@n8n/chat';
 
-createChat({
-  webhookUrl: '',
-  webhookConfig: {
-    method: 'POST',
-    headers: {},
-  },
-  target: '#n8n-chat',
-  mode: 'window',
-  chatInputKey: 'chatInput',
-  chatSessionKey: 'sessionId',
-  metadata: {},
-  showWelcomeScreen: false,
-  defaultLanguage: 'en',
-  initialMessages: [
-    'Hi there! 👋',
-    'My name is Nathan. How can I assist you today?',
-  ],
+document.addEventListener('initChat', (event) => {
+  const chatConfig = (event as CustomEvent).detail;
+  createChat(chatConfig);
+
+  const observer = new MutationObserver((mutationsList) => {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'childList') {
+        const poweredByElement =
+          document.querySelector('.chat-powered-by');
+        if (poweredByElement) {
+          poweredByElement.innerHTML =
+            'Powered by <a href="https://yourdigitaltoolbox.com/" target="_blank" rel="noopener noreferrer">Your Digital Toolbox</a>';
+          observer.disconnect(); // Stop observing once the element is found and updated
+          return; // Use return instead of break to exit the function
+        }
+      }
+    }
+  });
+
+  observer.observe(document.body, {childList: true, subtree: true});
 });

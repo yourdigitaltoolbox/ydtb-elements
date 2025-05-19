@@ -30,19 +30,62 @@ class AiChat extends YDTBWidget
 
     protected function render()
     {
-        // No visible output on the front end
+        // Output the script in both places, but only show the note in the editor
+        if (\Elementor\Plugin::$instance->editor->is_edit_mode()) {
+            ?>
+            <div style="padding: 10px; background: #f9f9f9; border: 1px solid #ddd;">
+                <strong>Note:</strong> This element produces the chat widget in the corner, but will have no visible output on
+                the front end.
+            </div>
+            <?php
+        }
+        ?>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const event = new CustomEvent('initChat', {
+                    detail: {
+                        webhookUrl: '<?php echo esc_js($this->get_settings_for_display('webhook_url')); ?>',
+                        webhookConfig: {
+                            method: '<?php echo esc_js($this->get_settings_for_display('webhook_method')); ?>',
+                            headers: <?php echo json_encode(json_decode($this->get_settings_for_display('webhook_headers'), true)); ?>
+                        },
+                        target: '#n8n-chat',
+                        mode: '<?php echo esc_js($this->get_settings_for_display('chat_mode')); ?>',
+                        chatInputKey: 'chatInput',
+                        chatSessionKey: 'sessionId',
+                        metadata: {},
+                        showWelcomeScreen: <?php echo $this->get_settings_for_display('show_welcome_screen') ? 'true' : 'false'; ?>,
+                        defaultLanguage: '<?php echo esc_js($this->get_settings_for_display('default_language')); ?>',
+                        initialMessages: <?php
+                        $initial_messages = $this->get_settings_for_display('initialMessages');
+                        $messages = [];
+                        if (!empty($initial_messages)) {
+                            foreach ($initial_messages as $message) {
+                                $messages[] = $message['message_text'];
+                            }
+                        }
+                        echo json_encode($messages);
+                        ?>,
+                        i18n: {
+                            en: {
+                                title: '<?php echo esc_js($this->get_settings_for_display('i18n_title')); ?>',
+                                subtitle: '<?php echo esc_js($this->get_settings_for_display('i18n_subtitle')); ?>',
+                                footer: '<?php echo esc_js($this->get_settings_for_display('i18n_footer')); ?>',
+                                getStarted: '<?php echo esc_js($this->get_settings_for_display('i18n_get_started')); ?>',
+                                inputPlaceholder: '<?php echo esc_js($this->get_settings_for_display('i18n_input_placeholder')); ?>',
+                            },
+                        },
+                    }
+                });
+                document.dispatchEvent(event);
+            });
+        </script>
+        <?php
     }
 
     protected function content_template()
     {
-        ?>
-        <div style="padding: 10px; background: #f9f9f9; border: 1px solid #ddd;">
-            <strong>Note:</strong> This element produces the chat widget in the corner, but will have no visible output on
-            the front end.
-        </div>
-
-
-        <?php
     }
 
     protected function register_controls()
@@ -256,6 +299,66 @@ class AiChat extends YDTBWidget
                 'selectors' => [
                     '{{WRAPPER}}' => '--chat--border-radius: {{SIZE}}{{UNIT}};',
                 ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_i18n',
+            [
+                'label' => esc_html__('Chat Window', 'ydtb-elementor-widgets'),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        $this->add_control(
+            'i18n_title',
+            [
+                'label' => esc_html__('Title', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Hey There! 👋', 'ydtb-elementor-widgets'), // Default value
+                'placeholder' => esc_html__('Enter title', 'ydtb-elementor-widgets'),
+            ]
+        );
+
+        $this->add_control(
+            'i18n_subtitle',
+            [
+                'label' => esc_html__('Subtitle', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => '', // Default value
+                'placeholder' => esc_html__('Enter subtitle', 'ydtb-elementor-widgets'),
+            ]
+        );
+
+        $this->add_control(
+            'i18n_footer',
+            [
+                'label' => esc_html__('Footer', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => '', // Default value
+                'placeholder' => esc_html__('Enter footer text', 'ydtb-elementor-widgets'),
+            ]
+        );
+
+        $this->add_control(
+            'i18n_get_started',
+            [
+                'label' => esc_html__('Get Started Text', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('New Conversation', 'ydtb-elementor-widgets'), // Default value
+                'placeholder' => esc_html__('Enter get started text', 'ydtb-elementor-widgets'),
+            ]
+        );
+
+        $this->add_control(
+            'i18n_input_placeholder',
+            [
+                'label' => esc_html__('Input Placeholder', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Type your question..', 'ydtb-elementor-widgets'), // Default value
+                'placeholder' => esc_html__('Enter input placeholder', 'ydtb-elementor-widgets'),
             ]
         );
 
