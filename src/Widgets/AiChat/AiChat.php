@@ -78,57 +78,105 @@ class AiChat extends YDTBWidget
                                 },
                             },
                         },
-                        style: {
-                            '--chat--color-primary': 'red',
-                            '--chat--color-primary-shade-50': '#db4061',
-                            '--chat--color-primary-shade-100': '#cf3c5c',
-                            '--chat--color-secondary': '#20b69e',
-                            '--chat--color-secondary-shade-50': '#1ca08a',
-                            '--chat--color-white': '#ffffff',
-                            '--chat--color-light': '#f2f4f8',
-                            '--chat--color-light-shade-50': '#e6e9f1',
-                            '--chat--color-light-shade-100': '#c2c5cc',
-                            '--chat--color-medium': '#d2d4d9',
-                            '--chat--color-dark': '#101330',
-                            '--chat--color-disabled': '#777980',
-                            '--chat--color-typing': '#404040',
-                            '--chat--spacing': '1rem',
-                            '--chat--border-radius': '0.25rem',
-                            '--chat--transition-duration': '0.15s',
-                            '--chat--window--width': '500px',
-                            '--chat--window--height': '700px',
-                            '--chat--header-height': 'auto',
-                            '--chat--header--padding': 'var(--chat--spacing)',
-                            '--chat--header--background': 'var(--chat--color-dark)',
-                            '--chat--header--color': 'var(--chat--color-light)',
-                            '--chat--header--border-top': 'none',
-                            '--chat--header--border-bottom': 'none',
-                            '--chat--heading--font-size': '1em',
-                            '--chat--subtitle--font-size': 'inherit',
-                            '--chat--subtitle--line-height': '1.8',
-                            '--chat--textarea--height': '50px',
-                            '--chat--message--font-size': '1rem',
-                            '--chat--message--padding': 'var(--chat--spacing)',
-                            '--chat--message--border-radius': 'var(--chat--border-radius)',
-                            '--chat--message-line-height': '1.8',
-                            '--chat--message--bot--background': 'var(--chat--color-white)',
-                            '--chat--message--bot--color': 'var(--chat--color-dark)',
-                            '--chat--message--bot--border': 'none',
-                            '--chat--message--user--background': 'var(--chat--color-secondary)',
-                            '--chat--message--user--color': 'var(--chat--color-white)',
-                            '--chat--message--user--border': 'none',
-                            '--chat--message--pre--background': 'rgba(0, 0, 0, 0.05)',
-                            '--chat--toggle--background': 'var(--chat--color-primary)',
-                            '--chat--toggle--hover--background': 'var(--chat--color-primary-shade-50)',
-                            '--chat--toggle--active--background': 'var(--chat--color-primary-shade-100)',
-                            '--chat--toggle--color': 'var(--chat--color-white)',
-                            '--chat--toggle--size': '64px',
-                        }
                     }
                 });
                 document.dispatchEvent(event);
             });
         </script>
+
+        <style>
+            :root {
+                --chat--color-primary:
+                    <?php echo esc_js($this->get_settings_for_display('color_primary')); ?>
+                ;
+                --chat--color-primary-shade-50:
+                    <?php echo esc_js($this->get_settings_for_display('color_primary_shade_50')); ?>
+                ;
+                --chat--color-primary-shade-100:
+                    <?php echo esc_js($this->get_settings_for_display('color_primary_shade_100')); ?>
+                ;
+                --chat--color-secondary:
+                    <?php echo esc_js($this->get_settings_for_display('color_secondary')); ?>
+                ;
+                --chat--color-secondary-shade-50:
+                    <?php echo esc_js($this->get_settings_for_display('color_secondary_shade_50')); ?>
+                ;
+                --chat--color-white:
+                    <?php echo esc_js($this->get_settings_for_display('color_white')); ?>
+                ;
+                --chat--color-light:
+                    <?php echo esc_js($this->get_settings_for_display('color_light')); ?>
+                ;
+                --chat--color-light-shade-50:
+                    <?php echo esc_js($this->get_settings_for_display('color_light_shade_50')); ?>
+                ;
+                --chat--color-light-shade-100:
+                    <?php echo esc_js($this->get_settings_for_display('color_light_shade_100')); ?>
+                ;
+                --chat--color-medium:
+                    <?php echo esc_js($this->get_settings_for_display('color_medium')); ?>
+                ;
+                --chat--color-dark:
+                    <?php echo esc_js($this->get_settings_for_display('color_dark')); ?>
+                ;
+                --chat--color-disabled:
+                    <?php echo esc_js($this->get_settings_for_display('color_disabled')); ?>
+                ;
+                --chat--color-typing:
+                    <?php echo esc_js($this->get_settings_for_display('color_typing')); ?>
+                ;
+                --chat--spacing:
+                    <?php echo esc_js($this->get_settings_for_display('spacing')) . esc_js($this->get_settings_for_display('spacing_unit')); ?>
+                ;
+                --chat--border-radius:
+                    <?php echo esc_js($this->get_settings_for_display('border_radius')) . esc_js($this->get_settings_for_display('border_radius_unit')); ?>
+                ;
+                --chat--transition-duration:
+                    <?php echo esc_js($this->get_settings_for_display('transition_duration')); ?>
+                ;
+                --chat--window--width:
+                    <?php echo esc_js($this->get_settings_for_display('window_width')); ?>
+                ;
+                --chat--window--height:
+                    <?php echo esc_js($this->get_settings_for_display('window_height')); ?>
+                ;
+                --chat--header-height:
+                    <?php echo esc_js($this->get_settings_for_display('header_height')); ?>
+                ;
+                --chat--header--padding: var(--chat--spacing);
+                --chat--header--background: var(--chat--color-dark);
+                --chat--header--color: var(--chat--color-light);
+                --chat--header--border-top: none;
+                --chat--header--border-bottom: none;
+                --chat--header--border-bottom: none;
+                --chat--header--border-bottom: none;
+                --chat--heading--font-size: 2em;
+                --chat--header--color: var(--chat--color-light);
+                --chat--subtitle--font-size: inherit;
+                --chat--subtitle--line-height: 1.8;
+
+                --chat--textarea--height: 50px;
+
+                --chat--message--font-size: 1rem;
+                --chat--message--padding: var(--chat--spacing);
+                --chat--message--border-radius: var(--chat--border-radius);
+                --chat--message-line-height: 1.8;
+                --chat--message--bot--background: var(--chat--color-white);
+                --chat--message--bot--color: var(--chat--color-dark);
+                --chat--message--bot--border: none;
+                --chat--message--user--background: var(--chat--color-secondary);
+                --chat--message--user--color: var(--chat--color-white);
+                --chat--message--user--border: none;
+                --chat--message--pre--background: rgba(0, 0, 0, 0.05);
+
+                --chat--toggle--background: var(--chat--color-primary);
+                --chat--toggle--hover--background: var(--chat--color-primary-shade-50);
+                --chat--toggle--active--background: var(--chat--color-primary-shade-100);
+                --chat--toggle--color: var(--chat--color-white);
+                --chat--toggle--size: 64px;
+            }
+        </style>
+
         <?php
     }
 
@@ -138,7 +186,21 @@ class AiChat extends YDTBWidget
 
     protected function register_controls()
     {
+        // Register content sections
+        $this->register_initial_messages_section();
+        $this->register_chat_widget_settings_section();
+        $this->register_i18n_section();
 
+        // // Register style sections
+        $this->register_color_palette_section();
+        $this->register_general_styles_section();
+        $this->register_window_styles_section();
+        $this->register_message_styles_section();
+        $this->register_toggle_styles_section();
+    }
+
+    protected function register_initial_messages_section()
+    {
         $this->start_controls_section(
             'section_initial_messages',
             [
@@ -174,7 +236,10 @@ class AiChat extends YDTBWidget
         );
 
         $this->end_controls_section();
+    }
 
+    protected function register_chat_widget_settings_section()
+    {
         $this->start_controls_section(
             'section_content',
             [
@@ -247,62 +312,79 @@ class AiChat extends YDTBWidget
             ]
         );
 
+        $this->end_controls_section();
+    }
+
+    protected function register_i18n_section()
+    {
+        $this->start_controls_section(
+            'section_i18n',
+            [
+                'label' => esc_html__('Chat Window', 'ydtb-elementor-widgets'),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        $this->add_control(
+            'i18n_title',
+            [
+                'label' => esc_html__('Title', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Hey There! 👋', 'ydtb-elementor-widgets'),
+                'placeholder' => esc_html__('Enter title', 'ydtb-elementor-widgets'),
+            ]
+        );
+
+        $this->add_control(
+            'i18n_subtitle',
+            [
+                'label' => esc_html__('Subtitle', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => '',
+                'placeholder' => esc_html__('Enter subtitle', 'ydtb-elementor-widgets'),
+            ]
+        );
+
+        $this->add_control(
+            'i18n_footer',
+            [
+                'label' => esc_html__('Footer', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => '',
+                'placeholder' => esc_html__('Enter footer text', 'ydtb-elementor-widgets'),
+            ]
+        );
+
+        $this->add_control(
+            'i18n_get_started',
+            [
+                'label' => esc_html__('Get Started Text', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('New Conversation', 'ydtb-elementor-widgets'),
+                'placeholder' => esc_html__('Enter get started text', 'ydtb-elementor-widgets'),
+            ]
+        );
+
+        $this->add_control(
+            'i18n_input_placeholder',
+            [
+                'label' => esc_html__('Input Placeholder', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Type your question..', 'ydtb-elementor-widgets'),
+                'placeholder' => esc_html__('Enter input placeholder', 'ydtb-elementor-widgets'),
+            ]
+        );
 
         $this->end_controls_section();
+    }
 
+    protected function register_general_styles_section()
+    {
         $this->start_controls_section(
-            'section_style',
+            'section_general_styles',
             [
-                'label' => esc_html__('Chat Widget Styles', 'ydtb-elementor-widgets'),
+                'label' => esc_html__('General Styles', 'ydtb-elementor-widgets'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'color_primary',
-            [
-                'label' => esc_html__('Primary Color', 'ydtb-elementor-widgets'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#e74266',
-                'selectors' => [
-                    '{{WRAPPER}}' => '--chat--color-primary: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'color_secondary',
-            [
-                'label' => esc_html__('Secondary Color', 'ydtb-elementor-widgets'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#20b69e',
-                'selectors' => [
-                    '{{WRAPPER}}' => '--chat--color-secondary: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'color_light',
-            [
-                'label' => esc_html__('Light Color', 'ydtb-elementor-widgets'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#f2f4f8',
-                'selectors' => [
-                    '{{WRAPPER}}' => '--chat--color-light: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'color_dark',
-            [
-                'label' => esc_html__('Dark Color', 'ydtb-elementor-widgets'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#101330',
-                'selectors' => [
-                    '{{WRAPPER}}' => '--chat--color-dark: {{VALUE}};',
-                ],
             ]
         );
 
@@ -321,10 +403,7 @@ class AiChat extends YDTBWidget
                 'default' => [
                     'unit' => 'rem',
                     'size' => 1,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}}' => '--chat--spacing: {{SIZE}}{{UNIT}};',
-                ],
+                ]
             ]
         );
 
@@ -343,70 +422,179 @@ class AiChat extends YDTBWidget
                 'default' => [
                     'unit' => 'rem',
                     'size' => 0.25,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}}' => '--chat--border-radius: {{SIZE}}{{UNIT}};',
-                ],
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'transition_duration',
+            [
+                'label' => esc_html__('Transition Duration', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => '0.15s',
             ]
         );
 
         $this->end_controls_section();
+    }
 
+    protected function register_color_palette_section()
+    {
         $this->start_controls_section(
-            'section_i18n',
+            'section_color_palette',
             [
-                'label' => esc_html__('Chat Window', 'ydtb-elementor-widgets'),
-                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+                'label' => esc_html__('Color Palette', 'ydtb-elementor-widgets'),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'i18n_title',
+            'color_primary',
             [
-                'label' => esc_html__('Title', 'ydtb-elementor-widgets'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__('Hey There! 👋', 'ydtb-elementor-widgets'), // Default value
-                'placeholder' => esc_html__('Enter title', 'ydtb-elementor-widgets'),
+                'label' => esc_html__('Primary Color', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#e74266',
             ]
         );
 
         $this->add_control(
-            'i18n_subtitle',
+            'color_secondary',
             [
-                'label' => esc_html__('Subtitle', 'ydtb-elementor-widgets'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => '', // Default value
-                'placeholder' => esc_html__('Enter subtitle', 'ydtb-elementor-widgets'),
+                'label' => esc_html__('Secondary Color', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#20b69e',
             ]
         );
 
         $this->add_control(
-            'i18n_footer',
+            'color_light',
             [
-                'label' => esc_html__('Footer', 'ydtb-elementor-widgets'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => '', // Default value
-                'placeholder' => esc_html__('Enter footer text', 'ydtb-elementor-widgets'),
+                'label' => esc_html__('Light Color', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#f2f4f8',
             ]
         );
 
         $this->add_control(
-            'i18n_get_started',
+            'color_dark',
             [
-                'label' => esc_html__('Get Started Text', 'ydtb-elementor-widgets'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__('New Conversation', 'ydtb-elementor-widgets'), // Default value
-                'placeholder' => esc_html__('Enter get started text', 'ydtb-elementor-widgets'),
+                'label' => esc_html__('Dark Color', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#101330',
+            ]
+        );
+
+        $this->end_controls_section();
+    }
+
+    protected function register_window_styles_section()
+    {
+        $this->start_controls_section(
+            'section_window_styles',
+            [
+                'label' => esc_html__('Window Styles', 'ydtb-elementor-widgets'),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'i18n_input_placeholder',
+            'window_width',
             [
-                'label' => esc_html__('Input Placeholder', 'ydtb-elementor-widgets'),
+                'label' => esc_html__('Window Width', 'ydtb-elementor-widgets'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__('Type your question..', 'ydtb-elementor-widgets'), // Default value
-                'placeholder' => esc_html__('Enter input placeholder', 'ydtb-elementor-widgets'),
+                'default' => '500px',
+            ]
+        );
+
+        $this->add_control(
+            'window_height',
+            [
+                'label' => esc_html__('Window Height', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => '700px',
+            ]
+        );
+
+        $this->add_control(
+            'header_background',
+            [
+                'label' => esc_html__('Header Background', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#101330',
+            ]
+        );
+
+        $this->end_controls_section();
+    }
+
+    protected function register_message_styles_section()
+    {
+        $this->start_controls_section(
+            'section_message_styles',
+            [
+                'label' => esc_html__('Message Styles', 'ydtb-elementor-widgets'),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'message_font_size',
+            [
+                'label' => esc_html__('Message Font Size', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => '1rem',
+                'selectors' => [
+                    '{{WRAPPER}}' => '--chat--message--font-size: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'message_padding',
+            [
+                'label' => esc_html__('Message Padding', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => 'var(--chat--spacing)',
+            ]
+        );
+
+        $this->add_control(
+            'message_bot_background',
+            [
+                'label' => esc_html__('Bot Message Background', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#ffffff',
+            ]
+        );
+
+        $this->end_controls_section();
+    }
+
+    protected function register_toggle_styles_section()
+    {
+        $this->start_controls_section(
+            'section_toggle_styles',
+            [
+                'label' => esc_html__('Toggle Button Styles', 'ydtb-elementor-widgets'),
+                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'toggle_background',
+            [
+                'label' => esc_html__('Toggle Background', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => 'var(--chat--color-primary)',
+            ]
+        );
+
+        $this->add_control(
+            'toggle_size',
+            [
+                'label' => esc_html__('Toggle Size', 'ydtb-elementor-widgets'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => '64px',
             ]
         );
 
