@@ -90,7 +90,7 @@ class Workflow extends YDTBWidget
 
         <# if (settings.workflow==='' ) { return; } #>
 
-            <n8n-demo workflow={{{settings.workflow}}} <# if (settings.src) { #> src={{{settings.src}}}<# } #>
+            <n8n-demo workflow='{{{settings.workflow}}}' <# if (settings.src) { #> src={{{settings.src}}}<# } #>
                     <# if (settings.frame) { #> frame={{{settings.frame}}}<# } #>
                             <# if (settings.collapseformobile) { #> collapseformobile={{{settings.collapseformobile}}}<# } #>
                                     <# if (settings.clicktointeract) { #> clicktointeract={{{settings.clicktointeract}}}<# } #>
@@ -117,18 +117,6 @@ class Workflow extends YDTBWidget
             [
                 'label' => __('Workflow Settings', 'ydtb-elements'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-        $this->add_control(
-            'workflow',
-            [
-                'label' => __('Workflow JSON', 'ydtb-elements'),
-                'type' => \Elementor\Controls_Manager::CODE,
-                'default' => '{"nodes":[{"name":"Workflow-Created","type":"n8n-nodes-base.webhook","position":[512,369],"parameters":{"path":"webhook","httpMethod":"POST"},"typeVersion":1}],"connections":{}}',
-                'language' => 'json',
-                'rows' => 10,
-                'description' => __('Workflow JSON to load.', 'ydtb-elements'),
             ]
         );
 
@@ -219,6 +207,18 @@ class Workflow extends YDTBWidget
                 ],
                 'default' => '',
                 'description' => __('Force a theme on n8n. Accepts "light" or "dark".', 'ydtb-elements'),
+            ]
+        );
+
+        $this->add_control(
+            'workflow',
+            [
+                'label' => __('Workflow JSON', 'ydtb-elements'),
+                'type' => \Elementor\Controls_Manager::CODE,
+                'default' => '{"nodes":[{"name":"Workflow-Created","type":"n8n-nodes-base.webhook","position":[512,369],"parameters":{"path":"webhook","httpMethod":"POST"},"typeVersion":1}],"connections":{}}',
+                'language' => 'json',
+                'rows' => 10,
+                'description' => __('Workflow JSON to load.', 'ydtb-elements'),
             ]
         );
 
