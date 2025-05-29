@@ -30,9 +30,6 @@ class Workflow extends YDTBWidget
 
     protected function render()
     {
-        ?>
-
-        <?php
         $settings = $this->get_settings_for_display();
 
         // Prepare attributes
@@ -40,7 +37,7 @@ class Workflow extends YDTBWidget
 
         // workflow (textarea, string)
         if (!empty($settings['workflow'])) {
-            $attributes[] = 'workflow=\'' . $settings['workflow'] . '\'';
+            $attributes[] = 'workflow=\'' . htmlspecialchars($settings['workflow'], ENT_QUOTES, 'UTF-8') . '\'';
         }
 
         // frame (switcher, boolean)
