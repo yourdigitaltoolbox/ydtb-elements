@@ -25,6 +25,7 @@ class WidgetProvider implements Provider
             \YDTBWidget\AiChat\AiChat::class,
             \YDTBWidget\PeerTubeVideo\PeerTubeVideo::class,
             \YDTBWidget\KeyboardKeys\KeyboardKeys::class,
+            \YDTBWidget\Workflow\Workflow::class,
         ];
 
         foreach ($widgets as $widget) {

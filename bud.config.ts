@@ -65,7 +65,7 @@ const resolveModuleEntries = async (
 export default async (bud: Bud) => {
 
   // Resolve module entries
-  const entries = await resolveModuleEntries(path.resolve(__dirname, 'src/Widgets'), ['main.ts', 'index.ts', 'index.tsx']);
+  const entries = await resolveModuleEntries(path.resolve(__dirname, 'src/Widgets'), ['main.ts', 'index.ts', 'index.tsx', 'index.js']);
 
   // Register entries with Bud.js
   for (const [entryName, files] of Object.entries(entries)) {

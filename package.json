@@ -30,5 +30,10 @@
     "@roots/bud-eslint": "^6.24.0",
     "release-it": "^19.0.2",
     "@release-it/bumper": "^7.0.5"
+  },
+  "dependencies": {
+    "@n8n/chat": "^0.27.1",
+    "@n8n_io/n8n-demo-component": "^1.0.18",
+    "caniuse-lite": "^1.0.30001718"
   }
 }

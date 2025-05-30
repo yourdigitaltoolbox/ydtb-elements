@@ -1,13 +1,33 @@
-/*eslint no-unused-vars: 0*/
+import '@n8n/chat/style.css';
+import {createChat} from '@n8n/chat';
 
-import ReactDOM from 'react-dom/client';
+document.addEventListener('initChat', (event) => {
+  const {config} = (event as CustomEvent).detail;
 
-import Greeting from './components/helloworld.jsx';
+  // // Generate a <style> tag with the CSS variables
+  // const styleTag = document.createElement('style');
+  // const cssVariables = Object.entries(style)
+  //   .map(([key, value]) => `${key}: ${value};`) // Use the key directly as it already includes the correct variable name
+  //   .join('\n');
+  // styleTag.innerHTML = `:root { ${cssVariables} }`;
+  // document.head.appendChild(styleTag);
 
-document.addEventListener('DOMContentLoaded', () => {
-  const elements = document.getElementsByClassName('ai-chat');
-  Array.from(elements).forEach((element) => {
-    const root = ReactDOM.createRoot(element);
-    root.render(<Greeting name="World" />);
+  createChat(config);
+
+  const observer = new MutationObserver((mutationsList) => {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'childList') {
+        const poweredByElement =
+          document.querySelector('.chat-powered-by');
+        if (poweredByElement) {
+          poweredByElement.innerHTML =
+            'Powered by <a href="https://yourdigitaltoolbox.com/" target="_blank" rel="noopener noreferrer">Your Digital Toolbox</a>';
+          observer.disconnect(); // Stop observing once the element is found and updated
+          return; // Use return instead of break to exit the function
+        }
+      }
+    }
   });
+
+  observer.observe(document.body, {childList: true, subtree: true});
 });
